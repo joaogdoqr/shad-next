@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/sidebar/sidebar";
+import { Header } from "@/components/header/header";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -23,7 +24,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${dmSans.className} flex items-start justify-start`}>
         <Sidebar></Sidebar>
-        <div className="w-full h-full">{children}</div>
+        <main className="grid w-full h-full pl-[300px]">
+          <Header></Header>
+          {children}
+        </main>
       </body>
     </html>
   );
