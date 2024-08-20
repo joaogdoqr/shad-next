@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import { Sidebar } from "@/components/sidebar/sidebar";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
-  display: "swap"
-})
-
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={dmSans.className}>{children}</body>
+      <body className={`${dmSans.className} flex items-start justify-start`}>
+        <Sidebar></Sidebar>
+        <div className="w-full h-full">{children}</div>
+      </body>
     </html>
   );
 }
